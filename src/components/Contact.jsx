@@ -48,7 +48,7 @@ function Contact() {
         </div>
 
         <a
-          href="https://wa.me/919876543210"
+          href="https://wa.me/919921159036"
           target="_blank"
           className="inline-block mt-12 bg-green-500 hover:bg-green-600 text-white px-10 py-4 rounded-2xl text-lg transition duration-300"
         >

@@ -34,7 +34,7 @@ function Footer() {
           </h3>
 
           <ul className="space-y-3 text-gray-400">
-            <li>+91 98765 43210</li>
+            <li>+91 99211 59036</li>
             <li>hello@bloomnest.com</li>
             <li>Pune, Maharashtra</li>
           </ul>
