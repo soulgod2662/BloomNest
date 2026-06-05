@@ -24,6 +24,11 @@ import Orders from "./pages/Orders"
 import Admin from "./pages/Admin"
 import AdminRoute from "./components/AdminRoute"
 
+import PrivacyPolicy from "./pages/PrivacyPolicy"
+import RefundPolicy from "./pages/RefundPolicy"
+import ShippingPolicy from "./pages/ShippingPolicy"
+import TermsConditions from "./pages/TermsConditions"
+
 
 function App() {
   return (
@@ -33,6 +38,25 @@ function App() {
       <Navbar />
 
       <Routes>
+        <Route
+  path="/privacy-policy"
+  element={<PrivacyPolicy />}
+/>
+
+<Route
+  path="/refund-policy"
+  element={<RefundPolicy />}
+/>
+
+<Route
+  path="/shipping-policy"
+  element={<ShippingPolicy />}
+/>
+
+<Route
+  path="/terms-and-conditions"
+  element={<TermsConditions />}
+/>
         <Route
   path="/admin"
   element={

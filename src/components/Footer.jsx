@@ -27,7 +27,37 @@ function Footer() {
             <li><a href="#products" className="hover:text-white">Products</a></li>
           </ul>
         </div>
+        <div>
+  <h3 className="text-xl font-semibold mb-5">
+    Policies
+  </h3>
 
+  <ul className="space-y-3 text-gray-400">
+    <li>
+      <a href="/privacy-policy" className="hover:text-white">
+        Privacy Policy
+      </a>
+    </li>
+
+    <li>
+      <a href="/refund-policy" className="hover:text-white">
+        Refund Policy
+      </a>
+    </li>
+
+    <li>
+      <a href="/shipping-policy" className="hover:text-white">
+        Shipping Policy
+      </a>
+    </li>
+
+    <li>
+      <a href="/terms-and-conditions" className="hover:text-white">
+        Terms & Conditions
+      </a>
+    </li>
+  </ul>
+</div>
         <div>
           <h3 className="text-xl font-semibold mb-5">
             Contact
@@ -68,7 +98,7 @@ function Footer() {
 </li>
             <li>
   <a
-    href="https://pinterest.com"
+    href="https://pin.it/6AukI7sfo"
     target="_blank"
     rel="noreferrer"
     className="hover:text-white"
