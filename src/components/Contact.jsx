@@ -32,7 +32,7 @@ function Contact() {
             </h3>
 
             <p className="text-gray-600">
-              hello@bloomnest.com
+              bloomnest.support@gmail.com
             </p>
           </div>
 

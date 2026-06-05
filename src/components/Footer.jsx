@@ -35,7 +35,7 @@ function Footer() {
 
           <ul className="space-y-3 text-gray-400">
             <li>+91 99211 59036</li>
-            <li>hello@bloomnest.com</li>
+            <li>bloomnest.support@gmail.com</li>
             <li>Pune, Maharashtra</li>
           </ul>
         </div>
@@ -48,7 +48,7 @@ function Footer() {
           <ul className="space-y-3 text-gray-400">
             <li>
   <a
-    href="https://instagram.com"
+    href="https://www.instagram.com/bloomnest.shop/"
     target="_blank"
     rel="noreferrer"
     className="hover:text-white"
