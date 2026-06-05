@@ -6,7 +6,7 @@ import Checkout from "./pages/Checkout"
 
 import Navbar from "./components/Navbar"
 import Footer from "./components/Footer"
-import ScrollToTop from "./components/ScrollToTop"
+import ScrollTop from "./components/ScrollTop"
 
 import Home from "./pages/Home"
 import Cart from "./pages/Cart"
@@ -28,7 +28,7 @@ import AdminRoute from "./components/AdminRoute"
 function App() {
   return (
     <BrowserRouter>
-    <ScrollToTop />
+    <ScrollTop />
 
       <Navbar />
 
