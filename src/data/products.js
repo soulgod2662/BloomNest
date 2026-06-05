@@ -6,7 +6,7 @@ import product4 from "../assets/Back4.jpg"
 import BathroomMat from "../assets/rugs/BathroomMat.png"
 import CircularCarpet from "../assets/rugs/CircularCarpet.png"
 import DoorMat from "../assets/rugs/DoorMat.png"
-import SemiCircularCarpet from "../assets/rugs/SemiCircularCarpet.png"
+import SemiCircularCarpet from "../assets/rugs/SemicircularCarpet.png"
 import tropicalcarpet from "../assets/rugs/tropicalcarpet.png"
 import WelcomeDoorMat from "../assets/rugs/WelcomeDoorMat.png"
 
