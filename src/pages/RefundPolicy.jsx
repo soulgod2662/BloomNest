@@ -10,8 +10,7 @@ function RefundPolicy() {
           BloomNest collects customer information such as
           name, email, phone number and delivery address
           solely for order processing and customer support.
-
-          Arham Choughule 
+          
         </p>
       </div>
     </section>
