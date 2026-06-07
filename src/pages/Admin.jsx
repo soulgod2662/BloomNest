@@ -337,7 +337,17 @@ const fetchProducts = async () => {
         required
       />
 
-      <select>
+      <select
+  value={productData.category}
+  onChange={(e) =>
+    setProductData({
+      ...productData,
+      category: e.target.value
+    })
+  }
+  className="w-full border p-4 rounded-xl"
+>
+  <option value="">Select Category</option>
   <option value="rugs">Rugs & Carpets</option>
   <option value="kitchen-decor">Kitchen Decor</option>
   <option value="wall-decor">Wall Decor</option>
