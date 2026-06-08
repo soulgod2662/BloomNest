@@ -11,9 +11,7 @@ import {
   doc,
   setDoc
 } from "firebase/firestore"
-import {
-  createUserWithEmailAndPassword
-} from "firebase/auth"
+
 import { toast } from "react-toastify"
 import { Link } from "react-router-dom"
 
