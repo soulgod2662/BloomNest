@@ -63,10 +63,7 @@ const categoryMap = {
   const filteredProducts =
   products.filter(
     product =>
-      product.category ===
-      categoryMap[
-        categoryName
-      ]
+      product.category === categoryName
   )
   if (loading) {
 
