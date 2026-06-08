@@ -37,7 +37,9 @@ function SignUp() {
   await sendEmailVerification(
   userCredential.user
 )
-  alert(
+  await auth.signOut()
+
+toast.success(
   "Verification email sent. Please verify your email before logging in."
 )
 

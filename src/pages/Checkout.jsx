@@ -2,6 +2,9 @@ import { useContext, useState, useEffect } from "react"
 import { CartContext } from "../context/CartContext"
 import { useNavigate } from "react-router-dom"
 import { AuthContext } from "../context/AuthContext"
+import { toast } from "react-toastify"
+
+import { auth } from "../firebase/firebase"
 
 import { db } from "../firebase/firebase"
 
@@ -28,6 +31,58 @@ function Checkout() {
 
   try {
 
+    await user.reload()
+
+    if (
+      !auth.currentUser?.emailVerified
+    ) {
+
+      toast.error(
+        "Please verify your email before placing orders."
+      )
+
+      navigate("/login")
+
+      return
+    }
+
+    if (
+      !/^[0-9]{10}$/.test(
+        formData.phone
+      )
+    ) {
+
+      toast.error(
+        "Enter a valid 10 digit mobile number"
+      )
+
+      return
+    }
+
+    if (
+      !/^[0-9]{6}$/.test(
+        formData.pincode
+      )
+    ) {
+
+      toast.error(
+        "Enter a valid 6 digit PIN code"
+      )
+
+      return
+    }
+
+    if (
+      formData.address.trim().length < 15
+    ) {
+
+      toast.error(
+        "Please enter complete delivery address"
+      )
+
+      return
+    }
+
     const orderData = {
 
       userId: user.uid,
@@ -53,7 +108,6 @@ function Checkout() {
       total: totalPrice,
 
       status: "Processing",
-      
 
       createdAt: serverTimestamp(),
 
@@ -69,6 +123,10 @@ function Checkout() {
 
     clearCart()
 
+    toast.success(
+      "Order placed successfully!"
+    )
+
     navigate(
       "/order-success"
     )
@@ -76,6 +134,10 @@ function Checkout() {
   } catch (error) {
 
     console.error(error)
+
+    toast.error(
+      "Failed to place order. Please try again."
+    )
 
   }
 }
@@ -90,6 +152,21 @@ function Checkout() {
     pincode: "",
     payment: "COD",
   })
+  useEffect(() => {
+
+  if (
+    !user ||
+    !user.emailVerified
+  ) {
+
+    toast.error(
+      "Please verify your email before placing orders."
+    )
+
+    navigate("/login")
+  }
+
+}, [user])
   useEffect(() => {
 
   const fetchProfile = async () => {
