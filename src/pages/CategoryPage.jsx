@@ -56,7 +56,7 @@ const categoryMap = {
     "Furniture",
 
   "green-living":
-    "Planters & Gardening"
+    "Green Living"
 
 }
 
