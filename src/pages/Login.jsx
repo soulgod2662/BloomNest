@@ -1,43 +1,92 @@
 import { useState } from "react"
 import { auth } from "../firebase/firebase"
-import {
-  signInWithEmailAndPassword
-} from "firebase/auth"
+import { signInWithEmailAndPassword } from "firebase/auth"
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify"
 
-
 function Login() {
+
   const [loading, setLoading] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+
   const navigate = useNavigate()
+
   const handleLogin = async (e) => {
-    
 
     e.preventDefault()
+
+    if (!email || !password) {
+      toast.error("Please enter email and password")
+      return
+    }
+
     setLoading(true)
 
     try {
 
-      await signInWithEmailAndPassword(
-        auth,
-        email,
-        password
+      const userCredential =
+        await signInWithEmailAndPassword(
+          auth,
+          email.trim(),
+          password
+        )
+
+      if (!userCredential.user.emailVerified) {
+
+        await auth.signOut()
+
+        toast.error(
+          "Please verify your email before logging in."
+        )
+
+        setEmail("")
+        setPassword("")
+
+        return
+      }
+
+      toast.success(
+        "Login Successful!"
       )
 
-      alert("Logged In!")
-      toast.success("Welcome Back!")
       navigate("/")
+
     } catch (error) {
 
-      alert(error.message)
+      if (
+        error.code === "auth/user-not-found" ||
+        error.code === "auth/wrong-password" ||
+        error.code === "auth/invalid-credential"
+      ) {
+
+        toast.error(
+          "Invalid email or password"
+        )
+
+      } else {
+
+        toast.error(
+          "Login failed. Please try again."
+        )
+
+      }
+
+      setEmail("")
+      setPassword("")
+
+      console.log(error)
+
+    } finally {
+
+      setLoading(false)
 
     }
 
   }
 
   return (
+
     <section className="min-h-screen flex items-center justify-center bg-gray-100">
 
       <form
@@ -70,16 +119,17 @@ function Login() {
         />
 
         <button
-  disabled={loading}
-  className="w-full bg-amber-600 text-white py-4 rounded-xl"
->
-  {loading ? "Logging In..." : "Login"}
-</button>
-
+          type="submit"
+          disabled={loading}
+          className="w-full bg-amber-600 hover:bg-amber-700 text-white py-4 rounded-xl disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          {loading ? "Logging In..." : "Login"}
+        </button>
 
       </form>
 
     </section>
+
   )
 }
 

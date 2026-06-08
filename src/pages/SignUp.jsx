@@ -2,6 +2,10 @@ import { useState } from "react"
 import { auth } from "../firebase/firebase"
 import { db } from "../firebase/firebase"
 import { useNavigate } from "react-router-dom"
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification
+} from "firebase/auth"
 
 import {
   doc,
@@ -32,6 +36,13 @@ function SignUp() {
     email,
     password
   )
+  await sendEmailVerification(
+  userCredential.user
+)
+  alert(
+  "Verification email sent. Please verify your email before logging in."
+)
+
       await setDoc(
   doc(
     db,

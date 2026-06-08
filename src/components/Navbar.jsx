@@ -184,7 +184,7 @@ function Navbar() {
   ) : (
     <>
       <li className="text-amber-700 font-semibold max-w-[180px] truncate">
-        {user.email}
+        {user.email?.split("@")[0]}
       </li>
 
       <li>
