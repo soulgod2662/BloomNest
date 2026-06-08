@@ -8,7 +8,7 @@ function AdminRoute({ children }) {
   const { user } = useContext(AuthContext)
 
   const adminEmail =
-    "test5@gmail.com" // CHANGE THIS
+    "sohamsecondary@gmail.com" // CHANGE THIS
 
   if (!user) {
     return <Navigate to="/login" />
